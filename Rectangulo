@@ -1,0 +1,50 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+require_once 'cuadrado.php';
+
+class Rectangulo extends Cuadrado
+{
+  private $alto;
+  
+  function __construct($origen, $ancho, $alto) {
+      parent::__construct($origen, $ancho);
+      $this->ancho = $ancho;
+      $this->alto = $alto;
+  }
+  function getAlto() {
+      return $this->alto;
+  }
+
+  function setAlto($alto) {
+      $this->alto = $alto;
+  }
+
+    public function Escalar($n) 
+    {
+    parent::Escalar($n);
+    $this->alto += $this->alto + $this->alto * $n / 100;
+        
+    }
+
+    public function area() {
+        
+    return $this->ancho * $this->alto;
+    
+    }
+
+    public function perimetro() {
+        
+    return $this->ancho * 2 + $this->alto * 2;
+    
+    }
+    
+    public function imprimir(){
+        return 'Rectangulo: ('.$this->origen->imprimir().' , '.$this->ancho.' , '.$this->alto.')';
+    }
+
+}
