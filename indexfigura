@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+        // put your code here
+        
+
+require_once 'punto.php';
+require_once 'circulo.php';
+require_once 'triangulo.php';
+require_once 'cuadrado.php';
+require_once 'rectangulo.php';
+require_once 'figura.php';
+
+class Index 
+{
+    public function Ejecutar()
+    {
+        $p1 = new punto(5,2);
+        $p2 = new punto(2,3);
+
+        echo ' Tenemos los puntos : '.$p1->imprimir().', '.$p2->imprimir();
+        echo '<br /><br />';
+        echo ' La distancia recorrida es: '.$p1->distancia($p2);
+        echo '<br /><br />';
+        $p1->desplazar(3, 2);
+        echo ' Ahora el punto esta en : '.$p1->imprimir();
+        echo '<br /><br />';
+
+        $cuadrado = new Cuadrado($p1,5);
+        echo $cuadrado->imprimir();
+        echo ' --- Area : '.$cuadrado->area();
+        echo ' --- Perimetro : '.$cuadrado->perimetro().' ---- ';
+        $cuadrado->Escalar(20);
+        echo 'El escalado del '.$cuadrado->imprimir();
+        echo '<br /><br />';
+
+        $circulo = new Circulo($p1,5);
+        echo $circulo->imprimir();
+        echo ' --- Area : '.$circulo->area();
+        echo ' --- Perimetro : '.$circulo->perimetro().' ---- ';
+        $circulo->Escalar(20);
+        echo 'El escalado del '.$circulo->imprimir();
+        echo '<br /><br />';
+
+        $triangulo = new Triangulo($p1,5,4);
+        echo $triangulo->imprimir();
+        echo ' --- Area : '.$triangulo->area();
+        echo ' --- Perimetro : '.$triangulo->perimetro().' ---- ';
+        $triangulo->Escalar(20);
+        echo 'El escalado del '.$triangulo->imprimir();
+        echo '<br /><br />';
+
+        $rectangulo = new Rectangulo($p1,5,4);
+        echo $rectangulo->imprimir();
+        echo ' --- Area : '.$rectangulo->area();
+        echo ' --- Perimetro : '.$rectangulo->perimetro().' ---- ';
+        $rectangulo->Escalar(20);
+        echo 'El escalado del '.$rectangulo->imprimir();
+        echo '<br /><br />';
+    }
+}
+
+$index = new Index();
+$index->Ejecutar();
+        ?>
+    </body>
+</html>
