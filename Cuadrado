@@ -1,0 +1,52 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+require_once 'figura.php';
+
+class Cuadrado extends Figura
+{
+    private $ancho;
+    
+    function __construct($origen, $ancho) {
+        
+        parent::__construct($origen);
+        $this->ancho = $ancho;
+        }
+        function getAncho() {
+            return $this->ancho;
+        }
+
+        function setAncho($ancho) {
+            $this->ancho = $ancho;
+            return $this;
+        }
+
+        
+    public function Escalar($n) 
+    {
+        
+        $this->ancho += $this->ancho + $this->ancho * $n / 100;
+    }
+
+    public function area()
+    {
+        
+        return $this->ancho * $this->ancho;
+
+    }
+
+    public function perimetro() 
+    {
+       return $this->ancho * 4; 
+    }
+    public function imprimir()
+    {
+    
+    return 'Cuadrado: ('.$this->origen->imprimir().' , '.$this->ancho.')';
+ 
+    }
+}
