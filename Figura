@@ -1,0 +1,52 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+require_once 'punto.php';
+abstract class Figura
+{
+    /**
+     *
+     * @var Punto
+     */
+    protected $origen;
+    /**
+     *
+     * @var int
+     */
+    
+    private static $numFiguras = 0;
+    /**
+     * 
+     * @param Punto $origen
+     */
+    
+    function __construct(Punto $origen) 
+    
+    {
+        
+        self::$numFiguras++;
+        $this->origen = $origen;
+    }
+    
+    function getOrigen() {
+        return $this->origen;
+    }
+
+    function setOrigen(Punto $origen) {
+        $this->origen = $origen;
+    }
+
+    public function desplazar($x , $y)
+    {
+     $this->origen->desplazar($x , $y);
+    }
+
+
+abstract public function perimetro();
+abstract public function area();
+abstract public function Escalar($n);
+}
