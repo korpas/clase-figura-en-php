@@ -1,0 +1,49 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class Punto
+
+{
+    private $x;
+    private $y;
+    
+    function __construct($x=0, $y=0) {
+        $this->x = $x;
+        $this->y = $y;
+    }
+    function getX() {
+        return $this->x;
+    }
+
+    function getY() {
+        return $this->y;
+    }
+
+    function setX($x) {
+        $this->x = $x;
+    }
+
+    function setY($y) {
+        $this->y = $y;
+    }
+
+    public function desplazar($x, $y)
+    {
+       $this->x += $x;
+       $this->y += $y;
+    }
+    public function distancia($p2)
+    {
+        return sqrt(pow($this->x - $p2->getX(), 2) + pow($this->y - $p2->getY(), 2));
+ 
+    }
+    public function imprimir()
+    {
+       return 'Posición X: '.$this->x.' | Posición Y: '.$this->y; 
+    }
+}
