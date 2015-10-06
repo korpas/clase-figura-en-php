@@ -1,0 +1,40 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+require_once 'figura.php';
+
+class Circulo extends Figura
+{
+    private $radio;
+    
+    function __construct($origen, $radio=0) {
+        parent::__construct($origen);
+        $this->radio = $radio;
+    }
+
+    public function Escalar($n) {
+        
+        return  $this->radio += $this->radio * $n / 100;
+    }
+
+    public function area() {
+        
+        return M_PI * pow($this->radio,2);
+    }
+
+    public function perimetro() {
+        
+        return 2 * M_PI * $this->radio;
+        
+    }
+
+    public function imprimir(){
+
+        return 'Circulo: ('.$this->origen->imprimir().' , '.$this->radio.')';
+    }
+}
