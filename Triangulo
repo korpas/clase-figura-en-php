@@ -1,0 +1,58 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+require_once 'figura.php';
+
+class Triangulo extends Figura
+{
+    private $base;
+    private $altura;
+    
+    function __construct($origen,$base, $altura) {
+        parent::__construct($origen);
+        $this->base = $base;
+        $this->altura = $altura;
+    }
+
+    function getBase() {
+        return $this->base;
+    }
+
+    function getAltura() {
+        return $this->altura;
+    }
+
+    function setBase($base) {
+        $this->base = $base;
+        return $this;
+    }
+
+    function setAltura($altura) {
+        $this->altura = $altura;
+        return $this;
+    }
+
+    public function Escalar($n) 
+    {
+      $this->base += $this->base * $n / 100;
+      $this->altura += $this->altura * $n / 100;
+    }
+    public function area()
+    {
+        return $this->base * $this->altura / 2;    
+    }
+    public function perimetro() 
+    {
+       return pow($this->altura, 2) + pow(pow($this->base / 2, 2), 1/2) * 2 + $this->base;  
+    }
+    public function imprimir()
+    {
+        return 'Triangulo: ('.$this->origen->imprimir().' , '.$this->base.' , '.$this->altura.')';
+ 
+    }
+}
+
